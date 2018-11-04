@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="BBDDModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="BBDDContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="UsuariosSet" EntityType="BBDDModel.Usuarios" />
+    <EntitySet Name="RegistrosSet" EntityType="BBDDModel.Registros" />
+    <EntitySet Name="ToursSet" EntityType="BBDDModel.Tours" />
+    <EntitySet Name="CiudadesSet" EntityType="BBDDModel.Ciudades" />
+    <AssociationSet Name="UsuariosRegistros" Association="BBDDModel.UsuariosRegistros">
+      <End Role="Usuarios" EntitySet="UsuariosSet" />
+      <End Role="Registros" EntitySet="RegistrosSet" />
+    </AssociationSet>
+    <AssociationSet Name="RegistrosTour" Association="BBDDModel.RegistrosTour">
+      <End Role="Registros" EntitySet="RegistrosSet" />
+      <End Role="Tour" EntitySet="ToursSet" />
+    </AssociationSet>
+    <AssociationSet Name="ToursCiudades" Association="BBDDModel.ToursCiudades">
+      <End Role="Tours" EntitySet="ToursSet" />
+      <End Role="Ciudades" EntitySet="CiudadesSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="UsuarioId" />
+    </Key>
+    <Property Name="UsuarioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" />
+    <Property Name="Apellidos" Type="String" Nullable="false" />
+    <Property Name="Telefono" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" Nullable="false" />
+    <Property Name="Contrasena" Type="String" Nullable="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" />
+    <Property Name="Sexo" Type="String" Nullable="false" />
+    <Property Name="Edad" Type="Int32" Nullable="false" />
+    <Property Name="Foto" Type="String" Nullable="false" />
+    <Property Name="Contacto" Type="String" Nullable="false" />
+    <Property Name="Tipo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Registros" Relationship="BBDDModel.UsuariosRegistros" FromRole="Usuarios" ToRole="Registros" />
+  </EntityType>
+  <EntityType Name="Registros">
+    <Key>
+      <PropertyRef Name="RegistroId" />
+    </Key>
+    <Property Name="RegistroId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FechaInscripcion" Type="DateTime" Nullable="false" />
+    <Property Name="FechaRealizacion" Type="DateTime" Nullable="false" />
+    <Property Name="GuiaId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Usuarios" Relationship="BBDDModel.UsuariosRegistros" FromRole="Registros" ToRole="Usuarios" />
+    <Property Name="UsuarioId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Tour" Relationship="BBDDModel.RegistrosTour" FromRole="Registros" ToRole="Tour" />
+    <Property Name="TourId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tours">
+    <Key>
+      <PropertyRef Name="TourId" />
+    </Key>
+    <Property Name="TourId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" Nullable="false" />
+    <NavigationProperty Name="Registros" Relationship="BBDDModel.RegistrosTour" FromRole="Tour" ToRole="Registros" />
+    <NavigationProperty Name="Ciudades" Relationship="BBDDModel.ToursCiudades" FromRole="Tours" ToRole="Ciudades" />
+    <Property Name="CiudadId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ciudades">
+    <Key>
+      <PropertyRef Name="CiudadId" />
+    </Key>
+    <Property Name="CiudadId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" />
+    <Property Name="Pais" Type="String" Nullable="false" />
+    <NavigationProperty Name="Tours" Relationship="BBDDModel.ToursCiudades" FromRole="Ciudades" ToRole="Tours" />
+  </EntityType>
+  <Association Name="UsuariosRegistros">
+    <End Type="BBDDModel.Usuarios" Role="Usuarios" Multiplicity="1" />
+    <End Type="BBDDModel.Registros" Role="Registros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="UsuarioId" />
+      </Principal>
+      <Dependent Role="Registros">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RegistrosTour">
+    <End Type="BBDDModel.Registros" Role="Registros" Multiplicity="*" />
+    <End Type="BBDDModel.Tours" Role="Tour" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Tour">
+        <PropertyRef Name="TourId" />
+      </Principal>
+      <Dependent Role="Registros">
+        <PropertyRef Name="TourId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ToursCiudades">
+    <End Type="BBDDModel.Tours" Role="Tours" Multiplicity="*" />
+    <End Type="BBDDModel.Ciudades" Role="Ciudades" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudades">
+        <PropertyRef Name="CiudadId" />
+      </Principal>
+      <Dependent Role="Tours">
+        <PropertyRef Name="CiudadId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
