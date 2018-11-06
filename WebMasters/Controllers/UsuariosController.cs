@@ -116,7 +116,7 @@ namespace WebMasters.Controllers
         }
 
         // GET: Usuarios/Login/5
-        public ActionResult Login()
+        public  ActionResult Login()
         {
             return View();
         }
@@ -130,20 +130,15 @@ namespace WebMasters.Controllers
                                 where Usuarios.Email == email
                                 select Usuarios);
 
-            if (user.Count() == 0)
-            {
-                return View();
-            }
+            //if (user == null)
+            //{
+            //    return View();
+            //}
             
 
 
            
-                
-
-  
-
-
-            return Edit(user.First().UsuarioId);
+             return Edit(user.First().UsuarioId);
             
             
             

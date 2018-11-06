@@ -1,6 +1,11 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    font-family: 'Agency FB';
+    background-image: url(https://i.avoz.es/default/2018/07/11/00121531317510021518410/Foto/madrid.jpg);
+    background-size: cover;
+    width: auto;
+    font-size: 18px;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -21,4 +26,38 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+
+
+
+/* WORLD TOURS */
+
+.login {
+    border-radius: 10px;
+    background-color: white;
+    float: left;
+    margin-left: 10em;
+    margin-top: 3em;
+    padding: 2em;
+}
+
+
+
+.espacios_laterales {
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+.espacios_laterales2 {
+    margin-left: 4em;
+    margin-right: 4em;
+}
+
+.espacio_top {
+    margin-top: 2em;
+}
+
+.texto_alineado_centro {
+    text-align: center;
 }

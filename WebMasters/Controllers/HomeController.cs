@@ -10,7 +10,9 @@ namespace WebMasters.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return Redirect("/Usuarios/login");
+
+            //return UsuariosController.Login();
         }
 
         public ActionResult About()
