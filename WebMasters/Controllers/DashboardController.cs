@@ -10,17 +10,17 @@ using WebMasters;
 
 namespace WebMasters.Controllers
 {
-    public class UsuariosController : Controller
+    public class DashboardController : Controller
     {
         private BBDDContext db = new BBDDContext();
 
-        // GET: Usuarios
+        // GET: Dashboard
         public ActionResult Index()
         {
             return View(db.UsuariosSet.ToList());
         }
 
-        // GET: Usuarios/Details/5
+        // GET: Dashboard/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -35,13 +35,13 @@ namespace WebMasters.Controllers
             return View(usuarios);
         }
 
-        // GET: Usuarios/Create
+        // GET: Dashboard/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Usuarios/Create
+        // POST: Dashboard/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -58,7 +58,7 @@ namespace WebMasters.Controllers
             return View(usuarios);
         }
 
-        // GET: Usuarios/Edit/5
+        // GET: Dashboard/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -73,7 +73,7 @@ namespace WebMasters.Controllers
             return View(usuarios);
         }
 
-        // POST: Usuarios/Edit/5
+        // POST: Dashboard/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -89,7 +89,7 @@ namespace WebMasters.Controllers
             return View(usuarios);
         }
 
-        // GET: Usuarios/Delete/5
+        // GET: Dashboard/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -104,7 +104,7 @@ namespace WebMasters.Controllers
             return View(usuarios);
         }
 
-        // POST: Usuarios/Delete/5
+        // POST: Dashboard/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -113,39 +113,6 @@ namespace WebMasters.Controllers
             db.UsuariosSet.Remove(usuarios);
             db.SaveChanges();
             return RedirectToAction("Index");
-        }
-
-        // GET: Usuarios/Login/5
-        public  ActionResult Login()
-        {
-            return View();
-        }
-
-        // GET: Usuarios/Confirm/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Check(Usuarios User)
-        {
-            Usuarios usuario = db.UsuariosSet.Find(User.UsuarioId);
-
-            //using (BBDDContext db = new BBDDContext()) ;
-
-            //var user = (from Usuarios in db.UsuariosSet
-            //                    where Usuarios.Email == email
-            //                    select Usuarios);
-
-            //if (user == null)
-            //{
-            //    return View();
-            //}
-            
-
-
-           
-             return Edit(usuario.UsuarioId);
-            
-            
-            
         }
 
         protected override void Dispose(bool disposing)

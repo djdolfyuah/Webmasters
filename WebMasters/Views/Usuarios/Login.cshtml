@@ -15,7 +15,7 @@
     </div>
     <div class="espacios_laterales">
 
-        @using (Html.BeginForm())
+        @using (Html.BeginForm("Check", "Usuarios", FormMethod.Post))
         {
             @Html.AntiForgeryToken()
 
