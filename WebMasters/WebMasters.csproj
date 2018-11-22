@@ -175,6 +175,7 @@
     </Compile>
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ToursController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -258,6 +259,12 @@
     <Content Include="Views\Dashboard\Details.cshtml" />
     <Content Include="Views\Dashboard\Edit.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Tours\Create.cshtml" />
+    <Content Include="Views\Tours\Delete.cshtml" />
+    <Content Include="Views\Tours\Details.cshtml" />
+    <Content Include="Views\Tours\Edit.cshtml" />
+    <Content Include="Views\Tours\Index.cshtml" />
+    <Content Include="Views\Tours\Find.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
