@@ -120,6 +120,12 @@ namespace WebMasters.Controllers
             return RedirectToAction("Index");
         }
 
+
+        public ActionResult Find()
+        {
+            db.
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
