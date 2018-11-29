@@ -23,6 +23,7 @@ namespace WebMasters
         public int TourId { get; set; }
         public string Descripcion { get; set; }
         public int CiudadId { get; set; }
+        public string Nombre { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Registros> Registros { get; set; }

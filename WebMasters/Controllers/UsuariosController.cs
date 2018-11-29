@@ -12,6 +12,7 @@ namespace WebMasters.Controllers
 {
     public class UsuariosController : Controller
     {
+        
         private BBDDContext db = new BBDDContext();
 
         // GET: Usuarios
@@ -126,19 +127,19 @@ namespace WebMasters.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(string email, string contrasena, int? tipo)
         {
-            var user = (from Usuarios in db.UsuariosSet
-                                where Usuarios.Email == email
-                                select Usuarios);
+            var user = (from UsuariosSet in db.UsuariosSet
+                                where UsuariosSet.Email == email
+                                select UsuariosSet);
 
-            //if (user == null)
+            //if (user==null)
             //{
-            //    return View();
-            //}
-            
+             //   RedirectToAction("Index");
+           // }
+            //RedirectToAction(ActionName);
 
 
-           
-             return Edit(user.First().UsuarioId);
+
+            return Edit(user.First().UsuarioId);
             
             
             

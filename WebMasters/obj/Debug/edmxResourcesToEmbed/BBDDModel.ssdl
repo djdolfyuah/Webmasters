@@ -53,6 +53,7 @@
     <Property Name="TourId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
     <Property Name="CiudadId" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="CiudadesSet">
     <Key>

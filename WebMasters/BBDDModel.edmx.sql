@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/04/2018 15:51:49
--- Generated from EDMX file: C:\Users\adolf\Documents\GitHub\Webmasters\wm\WebMasters\WebMasters\BBDDModel.edmx
+-- Date Created: 11/15/2018 19:24:26
+-- Generated from EDMX file: C:\Users\Sandra\Documents\GitHub\Webmasters\WebMasters\BBDDModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -17,11 +17,32 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_UsuariosRegistros]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[RegistrosSet] DROP CONSTRAINT [FK_UsuariosRegistros];
+GO
+IF OBJECT_ID(N'[dbo].[FK_RegistrosTour]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[RegistrosSet] DROP CONSTRAINT [FK_RegistrosTour];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ToursCiudades]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ToursSet] DROP CONSTRAINT [FK_ToursCiudades];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[UsuariosSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[UsuariosSet];
+GO
+IF OBJECT_ID(N'[dbo].[RegistrosSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[RegistrosSet];
+GO
+IF OBJECT_ID(N'[dbo].[ToursSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ToursSet];
+GO
+IF OBJECT_ID(N'[dbo].[CiudadesSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[CiudadesSet];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -59,7 +80,8 @@ GO
 CREATE TABLE [dbo].[ToursSet] (
     [TourId] int IDENTITY(1,1) NOT NULL,
     [Descripcion] nvarchar(max)  NOT NULL,
-    [CiudadId] int  NOT NULL
+    [CiudadId] int  NOT NULL,
+    [Nombre] nvarchar(max)  NOT NULL
 );
 GO
 

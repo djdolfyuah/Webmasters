@@ -58,6 +58,7 @@
     <NavigationProperty Name="Registros" Relationship="BBDDModel.RegistrosTour" FromRole="Tour" ToRole="Registros" />
     <NavigationProperty Name="Ciudades" Relationship="BBDDModel.ToursCiudades" FromRole="Tours" ToRole="Ciudades" />
     <Property Name="CiudadId" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" />
   </EntityType>
   <EntityType Name="Ciudades">
     <Key>
