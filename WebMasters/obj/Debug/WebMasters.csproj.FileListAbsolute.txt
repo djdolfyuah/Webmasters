@@ -202,3 +202,7 @@ C:\Users\adolf\Documents\GitHub\Webmasters\WebMasters\obj\Debug\WebMasters.cspro
 C:\Users\adolf\Documents\GitHub\Webmasters\WebMasters\obj\Debug\WebMasters.csproj.CopyComplete
 C:\Users\adolf\Documents\GitHub\Webmasters\WebMasters\obj\Debug\WebMasters.dll
 C:\Users\adolf\Documents\GitHub\Webmasters\WebMasters\obj\Debug\WebMasters.pdb
+C:\Users\Víctor\Documents\GitHub\Webmasters\WebMasters\obj\Debug\WebMasters.csprojAssemblyReference.cache
+C:\Users\Víctor\Documents\GitHub\Webmasters\WebMasters\obj\Debug\WebMasters.csproj.CoreCompileInputs.cache
+C:\Users\Víctor\Documents\GitHub\Webmasters\WebMasters\obj\Debug\WebMasters.dll
+C:\Users\Víctor\Documents\GitHub\Webmasters\WebMasters\obj\Debug\WebMasters.pdb
