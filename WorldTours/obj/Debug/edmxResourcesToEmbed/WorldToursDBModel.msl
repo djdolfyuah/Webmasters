@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WorldToursDBModelStoreContainer" CdmEntityContainer="WorldToursDBModelContext">
+    <EntitySetMapping Name="UsuariosSet">
+      <EntityTypeMapping TypeName="IsTypeOf(WorldToursDBModel.Usuarios)">
+        <MappingFragment StoreEntitySet="UsuariosSet">
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Edad" ColumnName="Edad" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+          <ScalarProperty Name="Contacto" ColumnName="Contacto" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegistrosSet">
+      <EntityTypeMapping TypeName="IsTypeOf(WorldToursDBModel.Registros)">
+        <MappingFragment StoreEntitySet="RegistrosSet">
+          <ScalarProperty Name="RegistroId" ColumnName="RegistroId" />
+          <ScalarProperty Name="FechaInscripcion" ColumnName="FechaInscripcion" />
+          <ScalarProperty Name="FechaRealizacion" ColumnName="FechaRealizacion" />
+          <ScalarProperty Name="GuiaId" ColumnName="GuiaId" />
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+          <ScalarProperty Name="TourId" ColumnName="TourId" />
+          <ScalarProperty Name="UsuariosUsuarioId" ColumnName="UsuariosUsuarioId" />
+          <ScalarProperty Name="ToursTourId" ColumnName="ToursTourId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ToursSet">
+      <EntityTypeMapping TypeName="IsTypeOf(WorldToursDBModel.Tours)">
+        <MappingFragment StoreEntitySet="ToursSet">
+          <ScalarProperty Name="TourId" ColumnName="TourId" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CiudadesSet">
+      <EntityTypeMapping TypeName="IsTypeOf(WorldToursDBModel.Ciudades)">
+        <MappingFragment StoreEntitySet="CiudadesSet">
+          <ScalarProperty Name="CiudadId" ColumnName="CiudadId" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Pais" ColumnName="Pais" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ToursCiudades" TypeName="WorldToursDBModel.ToursCiudades" StoreEntitySet="ToursSet">
+      <EndProperty Name="Ciudades">
+        <ScalarProperty Name="CiudadId" ColumnName="Ciudades_CiudadId" />
+      </EndProperty>
+      <EndProperty Name="Tours">
+        <ScalarProperty Name="TourId" ColumnName="TourId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

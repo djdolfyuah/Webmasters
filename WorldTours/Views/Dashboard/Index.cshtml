@@ -1,0 +1,14 @@
+﻿@model WorldTours.Usuarios
+
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<div class="dashboard-box">
+    <h2>Hola @Html.DisplayFor(model => model.Nombre)</h2>
+    @Html.ActionLink("Buscar Tour", "#")
+    @Html.ActionLink("Ver tu perfil", "/Details")
+</div>
+
+
+

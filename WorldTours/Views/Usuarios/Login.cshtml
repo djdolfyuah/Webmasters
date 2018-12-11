@@ -1,0 +1,75 @@
+﻿@model WorldTours.Usuarios
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="home-box col-md-4">
+    <h1>Inicia Sesión</h1>
+    <hr style="color: #ffffff;" />
+
+    @using (Html.BeginForm("Login", "Usuarios", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+    <form role="form">
+        <div class="form-group">
+            <input class="form-control text-box single-line" id="Email" name="Email" type="text" value="" placeholder="Introduce tu email">
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <input class="form-control text-box single-line" id="Contrasena" name="Contrasena" type="password" value="" placeholder="Contraseña">
+            @Html.ValidationMessageFor(model => model.Contrasena, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <select id="Tipo" name="Tipo" class="form-control text-box single-line">
+                <option value="0">Turista</option>
+                <option value="1">Guia</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Sign in" class="btn btn-primary" />
+        </div>
+    </form>
+    }
+
+    ¿No estás registrado? Haz clic  <a href="/Usuarios/Signup">¡Aquí!</a>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

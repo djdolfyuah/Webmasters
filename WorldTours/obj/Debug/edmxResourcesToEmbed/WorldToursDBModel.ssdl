@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WorldToursDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="WorldToursDBModelStoreContainer">
+    <EntitySet Name="UsuariosSet" EntityType="WorldToursDBModel.Store.UsuariosSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RegistrosSet" EntityType="WorldToursDBModel.Store.RegistrosSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ToursSet" EntityType="WorldToursDBModel.Store.ToursSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CiudadesSet" EntityType="WorldToursDBModel.Store.CiudadesSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="UsuariosRegistros" Association="WorldToursDBModel.Store.UsuariosRegistros">
+      <End Role="Usuarios" EntitySet="UsuariosSet" />
+      <End Role="Registros" EntitySet="RegistrosSet" />
+    </AssociationSet>
+    <AssociationSet Name="RegistrosTours" Association="WorldToursDBModel.Store.RegistrosTours">
+      <End Role="Registros" EntitySet="RegistrosSet" />
+      <End Role="Tours" EntitySet="ToursSet" />
+    </AssociationSet>
+    <AssociationSet Name="ToursCiudades" Association="WorldToursDBModel.Store.ToursCiudades">
+      <End Role="Tours" EntitySet="ToursSet" />
+      <End Role="Ciudades" EntitySet="CiudadesSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="UsuariosSet">
+    <Key>
+      <PropertyRef Name="UsuarioId" />
+    </Key>
+    <Property Name="UsuarioId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Apellidos" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telefono" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Contrasena" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Sexo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Edad" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Foto" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Contacto" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Tipo" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RegistrosSet">
+    <Key>
+      <PropertyRef Name="RegistroId" />
+    </Key>
+    <Property Name="RegistroId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FechaInscripcion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FechaRealizacion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="GuiaId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UsuarioId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TourId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UsuariosUsuarioId" Type="int" Nullable="false" />
+    <Property Name="ToursTourId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ToursSet">
+    <Key>
+      <PropertyRef Name="TourId" />
+    </Key>
+    <Property Name="TourId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Ciudad" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Ciudades_CiudadId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CiudadesSet">
+    <Key>
+      <PropertyRef Name="CiudadId" />
+    </Key>
+    <Property Name="CiudadId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Pais" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="UsuariosRegistros">
+    <End Role="Usuarios" Type="WorldToursDBModel.Store.UsuariosSet" Multiplicity="1" />
+    <End Role="Registros" Type="WorldToursDBModel.Store.RegistrosSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="UsuarioId" />
+      </Principal>
+      <Dependent Role="Registros">
+        <PropertyRef Name="UsuariosUsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RegistrosTours">
+    <End Role="Registros" Type="WorldToursDBModel.Store.RegistrosSet" Multiplicity="*" />
+    <End Role="Tours" Type="WorldToursDBModel.Store.ToursSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Tours">
+        <PropertyRef Name="TourId" />
+      </Principal>
+      <Dependent Role="Registros">
+        <PropertyRef Name="ToursTourId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ToursCiudades">
+    <End Role="Tours" Type="WorldToursDBModel.Store.ToursSet" Multiplicity="*" />
+    <End Role="Ciudades" Type="WorldToursDBModel.Store.CiudadesSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudades">
+        <PropertyRef Name="CiudadId" />
+      </Principal>
+      <Dependent Role="Tours">
+        <PropertyRef Name="Ciudades_CiudadId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
