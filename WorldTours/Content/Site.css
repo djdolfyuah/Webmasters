@@ -37,19 +37,32 @@ textarea {
 
 .home-box {
     background: rgb(255,255,255);
-    margin: 50px;
+    margin: 50px auto;
     padding: 50px;
+    float: none;
     border-radius: 10px;
     color: rgb(0,0,0);
+    text-align:center;
 }
 
-.home-box > h1 {
-    margin-top: 0;
-}
+   
 
-.home-box > a {
-    color: rgb(255, 99, 71);
-}
+    .home-box > h1 {
+        margin-top: 0;
+    }
+
+    .home-box > a {
+        color: rgb(255, 99, 71);
+    }
+
+    .home-box input, select, textarea, .g-recaptcha {
+        margin: 0 auto;
+        max-width: 302px;
+    }
+
+    .home-box row{
+
+    }
 
 /* DASHBOARD */
 .dashboard-box {
@@ -58,4 +71,5 @@ textarea {
     padding: 50px;
     border-radius: 10px;
     color: rgb(0,0,0);
+    height: auto;
 }

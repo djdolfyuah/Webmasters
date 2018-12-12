@@ -171,3 +171,8 @@ C:\Users\adolf\Documents\GitHub\WorldTours\WorldTours\bin\ko\System.Spatial.reso
 C:\Users\adolf\Documents\GitHub\WorldTours\WorldTours\bin\ru\System.Spatial.resources.dll
 C:\Users\adolf\Documents\GitHub\WorldTours\WorldTours\bin\zh-Hans\System.Spatial.resources.dll
 C:\Users\adolf\Documents\GitHub\WorldTours\WorldTours\bin\zh-Hant\System.Spatial.resources.dll
+C:\Users\adolf\Documents\GitHub\WorldTours\WorldTours\bin\BotDetect.dll
+C:\Users\adolf\Documents\GitHub\WorldTours\WorldTours\bin\BotDetect.Web.Mvc.dll
+C:\Users\adolf\Documents\GitHub\WorldTours\WorldTours\bin\System.Data.SQLite.dll
+C:\Users\adolf\Documents\GitHub\WorldTours\WorldTours\bin\System.Data.SQLite.xml
+C:\Users\adolf\Documents\GitHub\WorldTours\WorldTours\bin\System.Data.SQLite.dll.config

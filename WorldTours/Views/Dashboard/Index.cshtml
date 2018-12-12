@@ -5,9 +5,27 @@
 }
 
 <div class="dashboard-box">
-    <h2>Hola @Html.DisplayFor(model => model.Nombre)</h2>
-    @Html.ActionLink("Buscar Tour", "#")
-    @Html.ActionLink("Ver tu perfil", "/Details")
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-10">
+                <h2>Hola @Html.DisplayFor(model => model.Nombre)</h2>
+            </div>
+            <div class="col-md-2 right">
+                <p><a href="~/Usuarios/Logout" class="btn btn-primary btn-danger">Logout</a></p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <p><a href="~/Dashboard/Details" class="btn btn-primary btn-sm">Ver perfil completo</a></p>
+                <p><a href="~/Dashboard/Edit" class="btn btn-primary btn-sm">Editar perfil</a></p>
+            </div>
+            <div class="col-md-6">
+                <p><a href="~/Dashboard" class="btn btn-primary btn-sm">Buscar Tour</a></p>
+            </div>
+        </div>
+
+    </div>
 </div>
 
 

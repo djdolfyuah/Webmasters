@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WorldTours;
+using System.Net.Http;
 
 namespace WorldTours.Controllers
 {
@@ -37,7 +38,7 @@ namespace WorldTours.Controllers
             return View(usuarios);
         }
 
-        
+
 
         // GET: Usuarios/Delete/5
         public ActionResult Delete(int? id)
@@ -81,6 +82,22 @@ namespace WorldTours.Controllers
             return View();
         }
 
+        //public async System.Threading.Tasks.Task<ActionResult> CheckCaptcha()
+        //{
+        //    HttpClient client = new HttpClient();
+        //    var values = new Dictionary<string, string>
+        //                {
+        //                   { "thing1", "hello" },
+        //                   { "thing2", "world" }
+        //                };
+
+        //    var content = new FormUrlEncodedContent(values);
+
+        //    var response = await client.PostAsync("http://www.example.com/recepticle.aspx", content);
+
+        //    var responseString = await response.Content.ReadAsStringAsync();
+        //}
+
         [HttpPost]
         public ActionResult Login(Usuarios user)
         {
@@ -96,6 +113,12 @@ namespace WorldTours.Controllers
                 ModelState.AddModelError("", "EMail o Contraseña incorrectos.");
             }
             return View();
+        }
+
+        public ActionResult Logout()
+        {
+            Session["UserID"] = null;
+            return RedirectToAction("", "Home", new { area = "" });
         }
     }
 }
