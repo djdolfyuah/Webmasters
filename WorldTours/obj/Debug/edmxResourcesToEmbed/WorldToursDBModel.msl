@@ -51,13 +51,5 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="ToursCiudades" TypeName="WorldToursDBModel.ToursCiudades" StoreEntitySet="ToursSet">
-      <EndProperty Name="Ciudades">
-        <ScalarProperty Name="CiudadId" ColumnName="Ciudades_CiudadId" />
-      </EndProperty>
-      <EndProperty Name="Tours">
-        <ScalarProperty Name="TourId" ColumnName="TourId" />
-      </EndProperty>
-    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

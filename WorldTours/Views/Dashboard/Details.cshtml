@@ -4,10 +4,8 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>Usuarios</h4>
+<div class="dashboard-box">
+    <h2>Perfil</h2>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -99,8 +97,9 @@
         </dd>
 
     </dl>
+    <p>
+        <a href="~/Dashboard/Edit" class="btn btn-primary btn-sm">Edit</a>
+        <a href="~/Dashboard/Index" class="btn btn-primary btn-sm">Volver</a>
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.UsuarioId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+

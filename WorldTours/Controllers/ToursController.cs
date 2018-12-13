@@ -15,9 +15,9 @@ namespace WorldTours.Controllers
         private WorldToursDBModelContext db = new WorldToursDBModelContext();
 
         // GET: Tours
-        public ActionResult Index()
+        public ActionResult Index( trs)
         {
-            return View(db.ToursSet.ToList());
+            return View(trs);
         }
 
         // GET: Tours/Details/5
@@ -113,6 +113,27 @@ namespace WorldTours.Controllers
             db.ToursSet.Remove(tours);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Find()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Find(Tours tour)
+        {
+            var trs = db.ToursSet.Where(t => t.Ciudad == tour.Ciudad).ToList();
+
+            if (trs != null)
+            {
+                return RedirectToAction("Index", trs);
+            }
+            else
+            {
+                ModelState.AddModelError("", "o se encuentran Tours.");
+            }
+            return View();
         }
 
         protected override void Dispose(bool disposing)

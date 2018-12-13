@@ -32,7 +32,7 @@ namespace WorldTours.Controllers
             {
                 db.UsuariosSet.Add(usuarios);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Login");
             }
 
             return View(usuarios);

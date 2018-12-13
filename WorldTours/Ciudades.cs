@@ -14,17 +14,8 @@ namespace WorldTours
     
     public partial class Ciudades
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Ciudades()
-        {
-            this.Tours = new HashSet<Tours>();
-        }
-    
         public int CiudadId { get; set; }
         public string Nombre { get; set; }
         public string Pais { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tours> Tours { get; set; }
     }
 }

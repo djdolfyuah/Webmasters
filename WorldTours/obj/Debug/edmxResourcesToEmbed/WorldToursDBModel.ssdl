@@ -13,10 +13,6 @@
       <End Role="Registros" EntitySet="RegistrosSet" />
       <End Role="Tours" EntitySet="ToursSet" />
     </AssociationSet>
-    <AssociationSet Name="ToursCiudades" Association="WorldToursDBModel.Store.ToursCiudades">
-      <End Role="Tours" EntitySet="ToursSet" />
-      <End Role="Ciudades" EntitySet="CiudadesSet" />
-    </AssociationSet>
   </EntityContainer>
   <EntityType Name="UsuariosSet">
     <Key>
@@ -55,7 +51,6 @@
     <Property Name="TourId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Ciudad" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Ciudades_CiudadId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="CiudadesSet">
     <Key>
@@ -86,18 +81,6 @@
       </Principal>
       <Dependent Role="Registros">
         <PropertyRef Name="ToursTourId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="ToursCiudades">
-    <End Role="Tours" Type="WorldToursDBModel.Store.ToursSet" Multiplicity="*" />
-    <End Role="Ciudades" Type="WorldToursDBModel.Store.CiudadesSet" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Ciudades">
-        <PropertyRef Name="CiudadId" />
-      </Principal>
-      <Dependent Role="Tours">
-        <PropertyRef Name="Ciudades_CiudadId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -18,10 +18,6 @@
       <End Role="Registros" EntitySet="RegistrosSet" />
       <End Role="Tours" EntitySet="ToursSet" />
     </AssociationSet>
-    <AssociationSet Name="ToursCiudades" Association="WorldToursDBModel.Store.ToursCiudades">
-      <End Role="Tours" EntitySet="ToursSet" />
-      <End Role="Ciudades" EntitySet="CiudadesSet" />
-    </AssociationSet>
   </EntityContainer>
   <EntityType Name="UsuariosSet">
     <Key>
@@ -60,7 +56,6 @@
     <Property Name="TourId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Ciudad" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Ciudades_CiudadId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="CiudadesSet">
     <Key>
@@ -94,18 +89,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="ToursCiudades">
-    <End Role="Tours" Type="WorldToursDBModel.Store.ToursSet" Multiplicity="*" />
-    <End Role="Ciudades" Type="WorldToursDBModel.Store.CiudadesSet" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Ciudades">
-        <PropertyRef Name="CiudadId" />
-      </Principal>
-      <Dependent Role="Tours">
-        <PropertyRef Name="Ciudades_CiudadId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -122,10 +105,6 @@
           <AssociationSet Name="RegistrosTours" Association="WorldToursDBModel.RegistrosTours">
             <End Role="Registros" EntitySet="RegistrosSet" />
             <End Role="Tours" EntitySet="ToursSet" />
-          </AssociationSet>
-          <AssociationSet Name="ToursCiudades" Association="WorldToursDBModel.ToursCiudades">
-            <End Role="Tours" EntitySet="ToursSet" />
-            <End Role="Ciudades" EntitySet="CiudadesSet" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Usuarios">
@@ -169,7 +148,6 @@
           <Property Name="Descripcion" Type="String" Nullable="false" />
           <Property Name="Ciudad" Type="String" Nullable="false" />
           <NavigationProperty Name="Registros" Relationship="WorldToursDBModel.RegistrosTours" FromRole="Tours" ToRole="Registros" />
-          <NavigationProperty Name="Ciudades" Relationship="WorldToursDBModel.ToursCiudades" FromRole="Tours" ToRole="Ciudades" />
         </EntityType>
         <EntityType Name="Ciudades">
           <Key>
@@ -178,7 +156,6 @@
           <Property Name="CiudadId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" Nullable="false" />
           <Property Name="Pais" Type="String" Nullable="false" />
-          <NavigationProperty Name="Tours" Relationship="WorldToursDBModel.ToursCiudades" FromRole="Ciudades" ToRole="Tours" />
         </EntityType>
         <Association Name="UsuariosRegistros">
           <End Type="WorldToursDBModel.Usuarios" Role="Usuarios" Multiplicity="1" />
@@ -203,10 +180,6 @@
               <PropertyRef Name="ToursTourId" />
             </Dependent>
           </ReferentialConstraint>
-        </Association>
-        <Association Name="ToursCiudades">
-          <End Type="WorldToursDBModel.Tours" Role="Tours" Multiplicity="*" />
-          <End Type="WorldToursDBModel.Ciudades" Role="Ciudades" Multiplicity="1" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -264,14 +237,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="ToursCiudades" TypeName="WorldToursDBModel.ToursCiudades" StoreEntitySet="ToursSet">
-      <EndProperty Name="Ciudades">
-        <ScalarProperty Name="CiudadId" ColumnName="Ciudades_CiudadId" />
-      </EndProperty>
-      <EndProperty Name="Tours">
-        <ScalarProperty Name="TourId" ColumnName="TourId" />
-      </EndProperty>
-    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

@@ -13,10 +13,6 @@
       <End Role="Registros" EntitySet="RegistrosSet" />
       <End Role="Tours" EntitySet="ToursSet" />
     </AssociationSet>
-    <AssociationSet Name="ToursCiudades" Association="WorldToursDBModel.ToursCiudades">
-      <End Role="Tours" EntitySet="ToursSet" />
-      <End Role="Ciudades" EntitySet="CiudadesSet" />
-    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Usuarios">
     <Key>
@@ -59,7 +55,6 @@
     <Property Name="Descripcion" Type="String" Nullable="false" />
     <Property Name="Ciudad" Type="String" Nullable="false" />
     <NavigationProperty Name="Registros" Relationship="WorldToursDBModel.RegistrosTours" FromRole="Tours" ToRole="Registros" />
-    <NavigationProperty Name="Ciudades" Relationship="WorldToursDBModel.ToursCiudades" FromRole="Tours" ToRole="Ciudades" />
   </EntityType>
   <EntityType Name="Ciudades">
     <Key>
@@ -68,7 +63,6 @@
     <Property Name="CiudadId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Nombre" Type="String" Nullable="false" />
     <Property Name="Pais" Type="String" Nullable="false" />
-    <NavigationProperty Name="Tours" Relationship="WorldToursDBModel.ToursCiudades" FromRole="Ciudades" ToRole="Tours" />
   </EntityType>
   <Association Name="UsuariosRegistros">
     <End Type="WorldToursDBModel.Usuarios" Role="Usuarios" Multiplicity="1" />
@@ -93,9 +87,5 @@
         <PropertyRef Name="ToursTourId" />
       </Dependent>
     </ReferentialConstraint>
-  </Association>
-  <Association Name="ToursCiudades">
-    <End Type="WorldToursDBModel.Tours" Role="Tours" Multiplicity="*" />
-    <End Type="WorldToursDBModel.Ciudades" Role="Ciudades" Multiplicity="1" />
   </Association>
 </Schema>

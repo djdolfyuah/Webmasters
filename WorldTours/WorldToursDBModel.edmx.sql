@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 12/05/2018 19:36:04
+-- Date Created: 12/12/2018 20:36:26
 -- Generated from EDMX file: C:\Users\adolf\Documents\GitHub\WorldTours\WorldTours\WorldToursDBModel.edmx
 -- --------------------------------------------------
 
@@ -17,11 +17,32 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_UsuariosRegistros]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[RegistrosSet] DROP CONSTRAINT [FK_UsuariosRegistros];
+GO
+IF OBJECT_ID(N'[dbo].[FK_RegistrosTours]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[RegistrosSet] DROP CONSTRAINT [FK_RegistrosTours];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ToursCiudades]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ToursSet] DROP CONSTRAINT [FK_ToursCiudades];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[UsuariosSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[UsuariosSet];
+GO
+IF OBJECT_ID(N'[dbo].[RegistrosSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[RegistrosSet];
+GO
+IF OBJECT_ID(N'[dbo].[ToursSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ToursSet];
+GO
+IF OBJECT_ID(N'[dbo].[CiudadesSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[CiudadesSet];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -61,8 +82,7 @@ GO
 CREATE TABLE [dbo].[ToursSet] (
     [TourId] int IDENTITY(1,1) NOT NULL,
     [Descripcion] nvarchar(max)  NOT NULL,
-    [Ciudad] nvarchar(max)  NOT NULL,
-    [Ciudades_CiudadId] int  NOT NULL
+    [Ciudad] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -134,21 +154,6 @@ GO
 CREATE INDEX [IX_FK_RegistrosTours]
 ON [dbo].[RegistrosSet]
     ([ToursTourId]);
-GO
-
--- Creating foreign key on [Ciudades_CiudadId] in table 'ToursSet'
-ALTER TABLE [dbo].[ToursSet]
-ADD CONSTRAINT [FK_ToursCiudades]
-    FOREIGN KEY ([Ciudades_CiudadId])
-    REFERENCES [dbo].[CiudadesSet]
-        ([CiudadId])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_ToursCiudades'
-CREATE INDEX [IX_FK_ToursCiudades]
-ON [dbo].[ToursSet]
-    ([Ciudades_CiudadId]);
 GO
 
 -- --------------------------------------------------

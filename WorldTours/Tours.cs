@@ -26,6 +26,5 @@ namespace WorldTours
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Registros> Registros { get; set; }
-        public virtual Ciudades Ciudades { get; set; }
     }
 }
